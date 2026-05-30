@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Paseito - Tu plataforma de turismo en Colombia. Descubre los mejores destinos, experiencias únicas y aventuras inolvidables.">
-    <meta name="keywords" content="turismo, colombia, destinos, viajes, experiencias">
-    <title>Paseito - Descubre Colombia</title>
+    <meta name="description" content="Paseito - Tu plataforma premium de turismo en Colombia. Descubre los mejores destinos, experiencias únicas y aventuras inolvidables.">
+    <meta name="keywords" content="turismo, colombia, destinos, viajes, experiencias, tours">
+    <title>Paseito - Premium Tourism in Colombia</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>✈️</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23D94D1C' width='100' height='100' rx='20'/%3E%3Ctext x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-weight='bold'%3EP%3C/text%3E%3C/svg%3E">
 </head>
 <body>
     <!-- Header y Navegación -->
     <header class="header" role="banner">
         <div class="container">
             <div class="logo-section">
-                <h1 class="logo">✈️ Paseito</h1>
-                <p class="tagline">Descubre Colombia</p>
+                <h1 class="logo">Paseito</h1>
+                <p class="tagline">Colombia Awaits You</p>
             </div>
             
             <button class="menu-toggle" id="menuToggle" aria-label="Menú de navegación" aria-expanded="false">
@@ -26,95 +29,110 @@
             
             <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Navegación principal">
                 <ul class="nav-list">
-                    <li><a href="#inicio" class="nav-link active">Inicio</a></li>
-                    <li><a href="#destinos" class="nav-link">Destinos</a></li>
-                    <li><a href="#experiencias" class="nav-link">Experiencias</a></li>
-                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                    <li><a href="#inicio" class="nav-link active">Home</a></li>
+                    <li><a href="#destinos" class="nav-link">Destinations</a></li>
+                    <li><a href="#experiencias" class="nav-link">Experiences</a></li>
+                    <li><a href="#contacto" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
+
+            <div class="nav-cta">
+                <button class="btn btn-outline" onclick="document.getElementById('booking-section').scrollIntoView({behavior: 'smooth'})">Book Now</button>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="inicio" role="region" aria-label="Sección principal">
+        <div class="hero-background" style="background: linear-gradient(135deg, rgba(217, 77, 28, 0.75), rgba(204, 34, 0, 0.85)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&h=900&fit=crop'); background-size: cover; background-position: center;"></div>
         <div class="hero-content">
-            <h2>Bienvenido a Paseito</h2>
-            <p>Explora los destinos más hermosos de Colombia y crea memorias inolvidables</p>
-            <button class="btn btn-primary" onclick="document.getElementById('destinos').scrollIntoView({behavior: 'smooth'})">Explorar Destinos</button>
+            <span class="hero-badge">Discover Paradise</span>
+            <h2>Explore the Beauty of Colombia</h2>
+            <p>Experience unforgettable adventures through breathtaking landscapes, vibrant cultures, and warm-hearted people</p>
+            <button class="btn btn-primary btn-lg" onclick="document.getElementById('destinos').scrollIntoView({behavior: 'smooth'})">Explore Now</button>
         </div>
     </section>
 
     <!-- Sección de Búsqueda y Filtros -->
     <section class="search-section">
         <div class="container">
-            <h2>Encuentra tu próximo viaje</h2>
+            <div class="section-header">
+                <h2>Find Your Perfect Journey</h2>
+                <p>Discover amazing destinations across all of Colombia</p>
+            </div>
             <div class="search-container">
                 <input 
                     type="text" 
                     id="searchInput" 
                     class="search-input" 
-                    placeholder="Busca por destino, región o tipo de experiencia..."
+                    placeholder="Search by destination, region or experience..."
                     aria-label="Búsqueda de destinos y experiencias"
                 >
-                <button class="btn btn-search" onclick="performSearch()" aria-label="Ejecutar búsqueda">Buscar</button>
+                <button class="btn btn-search" onclick="performSearch()" aria-label="Ejecutar búsqueda">Search</button>
             </div>
             
-            <div class="filters">
-                <fieldset>
-                    <legend>Filtrar por región:</legend>
-                    <div class="filter-group">
-                        <label class="filter-label">
-                            <input type="radio" name="region" value="" checked onchange="filterDestinations()">
-                            <span>Todas las regiones</span>
-                        </label>
-                        <label class="filter-label">
-                            <input type="radio" name="region" value="Caribe" onchange="filterDestinations()">
-                            <span>Caribe</span>
-                        </label>
-                        <label class="filter-label">
-                            <input type="radio" name="region" value="Pacífico" onchange="filterDestinations()">
-                            <span>Pacífico</span>
-                        </label>
-                        <label class="filter-label">
-                            <input type="radio" name="region" value="Andina" onchange="filterDestinations()">
-                            <span>Andina</span>
-                        </label>
-                        <label class="filter-label">
-                            <input type="radio" name="region" value="Amazonia" onchange="filterDestinations()">
-                            <span>Amazonía</span>
-                        </label>
-                        <label class="filter-label">
-                            <input type="radio" name="region" value="Llanos" onchange="filterDestinations()">
-                            <span>Llanos</span>
-                        </label>
-                    </div>
-                </fieldset>
-                
-                <fieldset>
-                    <legend>Filtrar por tipo:</legend>
-                    <div class="filter-group">
-                        <label class="filter-label">
-                            <input type="checkbox" name="tipo" value="" onchange="filterDestinations()">
-                            <span>Todos</span>
-                        </label>
-                        <label class="filter-label">
-                            <input type="checkbox" name="tipo" value="Playa" onchange="filterDestinations()">
-                            <span>Playa</span>
-                        </label>
-                        <label class="filter-label">
-                            <input type="checkbox" name="tipo" value="Montaña" onchange="filterDestinations()">
-                            <span>Montaña</span>
-                        </label>
-                        <label class="filter-label">
-                            <input type="checkbox" name="tipo" value="Cultura" onchange="filterDestinations()">
-                            <span>Cultura</span>
-                        </label>
-                        <label class="filter-label">
-                            <input type="checkbox" name="tipo" value="Aventura" onchange="filterDestinations()">
-                            <span>Aventura</span>
-                        </label>
-                    </div>
-                </fieldset>
+            <div class="filters-wrapper">
+                <div class="filters">
+                    <fieldset>
+                        <legend>Filter by Region</legend>
+                        <div class="filter-group">
+                            <label class="filter-label">
+                                <input type="radio" name="region" value="" checked onchange="filterDestinations()">
+                                <span>All Regions</span>
+                            </label>
+                            <label class="filter-label">
+                                <input type="radio" name="region" value="Caribbean" onchange="filterDestinations()">
+                                <span>Caribbean</span>
+                            </label>
+                            <label class="filter-label">
+                                <input type="radio" name="region" value="Pacific" onchange="filterDestinations()">
+                                <span>Pacific Coast</span>
+                            </label>
+                            <label class="filter-label">
+                                <input type="radio" name="region" value="Andean" onchange="filterDestinations()">
+                                <span>Andean Region</span>
+                            </label>
+                            <label class="filter-label">
+                                <input type="radio" name="region" value="Amazon" onchange="filterDestinations()">
+                                <span>Amazon</span>
+                            </label>
+                            <label class="filter-label">
+                                <input type="radio" name="region" value="Llanos" onchange="filterDestinations()">
+                                <span>The Llanos</span>
+                            </label>
+                        </div>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <legend>Filter by Type</legend>
+                        <div class="filter-group">
+                            <label class="filter-label">
+                                <input type="checkbox" name="tipo" value="" onchange="filterDestinations()">
+                                <span>All Types</span>
+                            </label>
+                            <label class="filter-label">
+                                <input type="checkbox" name="tipo" value="Beach" onchange="filterDestinations()">
+                                <span>Beach</span>
+                            </label>
+                            <label class="filter-label">
+                                <input type="checkbox" name="tipo" value="Mountain" onchange="filterDestinations()">
+                                <span>Mountain</span>
+                            </label>
+                            <label class="filter-label">
+                                <input type="checkbox" name="tipo" value="Culture" onchange="filterDestinations()">
+                                <span>Culture</span>
+                            </label>
+                            <label class="filter-label">
+                                <input type="checkbox" name="tipo" value="Adventure" onchange="filterDestinations()">
+                                <span>Adventure</span>
+                            </label>
+                            <label class="filter-label">
+                                <input type="checkbox" name="tipo" value="Nature" onchange="filterDestinations()">
+                                <span>Nature</span>
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
             </div>
         </div>
     </section>
@@ -122,7 +140,10 @@
     <!-- Sección de Destinos -->
     <section class="destinations-section" id="destinos" role="region" aria-label="Destinos turísticos">
         <div class="container">
-            <h2>Destinos Destacados</h2>
+            <div class="section-header">
+                <h2>Featured Destinations</h2>
+                <p>Carefully curated locations that showcase Colombia's diversity</p>
+            </div>
             <div class="destinations-grid" id="destinationsGrid">
                 <!-- Las tarjetas se generarán con JavaScript -->
             </div>
@@ -132,27 +153,60 @@
     <!-- Sección de Experiencias -->
     <section class="experiences-section" id="experiencias" role="region" aria-label="Experiencias turísticas">
         <div class="container">
-            <h2>Experiencias Únicas</h2>
+            <div class="section-header">
+                <h2>Premium Experiences</h2>
+                <p>Curated adventures designed for unforgettable memories</p>
+            </div>
             <div class="experiences-grid" id="experiencesGrid">
                 <!-- Las tarjetas se generarán con JavaScript -->
             </div>
         </div>
     </section>
 
-    <!-- Sección de Reservas -->
-    <section class="booking-section">
+    <!-- Sección Destacada: Por qué Colombia -->
+    <section class="why-colombia">
         <div class="container">
-            <h2>Planifica tu Viaje</h2>
+            <h2>Why Choose Colombia?</h2>
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <div class="reason-icon">🌍</div>
+                    <h3>Biodiversity</h3>
+                    <p>Home to 10% of the world's species with unparalleled natural diversity</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">🎨</div>
+                    <h3>Rich Culture</h3>
+                    <p>Ancient traditions meet modern vibrancy in a tapestry of experiences</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">👥</div>
+                    <h3>Warm People</h3>
+                    <p>Experience genuine hospitality and the warmth of Colombian hospitality</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">🌤️</div>
+                    <h3>Perfect Climate</h3>
+                    <p>Eternal spring weather in multiple microclimates throughout the year</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Reservas -->
+    <section class="booking-section" id="booking-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Plan Your Adventure</h2>
+                <p>Secure your spot at your dream destination</p>
+            </div>
             <div class="booking-form-container">
                 <form class="booking-form" onsubmit="handleBooking(event)">
-                    <fieldset>
-                        <legend>Formulario de Reserva</legend>
-                        
+                    <div class="form-row">
                         <div class="form-group">
-                            <label for="destino">Destino:</label>
+                            <label for="destino">Select Destination *</label>
                             <select id="destino" required aria-label="Selecciona un destino">
-                                <option value="">Selecciona un destino</option>
-                                <option value="Cartagena">Cartagena</option>
+                                <option value="">Choose a destination...</option>
+                                <option value="Cartagena">Cartagena de Indias</option>
                                 <option value="Santa Marta">Santa Marta</option>
                                 <option value="Bogotá">Bogotá</option>
                                 <option value="Medellín">Medellín</option>
@@ -164,37 +218,44 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="fechaInicio">Fecha de Inicio:</label>
+                            <label for="fechaInicio">Check-In Date *</label>
                             <input type="date" id="fechaInicio" required aria-label="Fecha de inicio del viaje">
                         </div>
                         
                         <div class="form-group">
-                            <label for="fechaFin">Fecha de Fin:</label>
+                            <label for="fechaFin">Check-Out Date *</label>
                             <input type="date" id="fechaFin" required aria-label="Fecha de fin del viaje">
                         </div>
-                        
+
                         <div class="form-group">
-                            <label for="personas">Número de Personas:</label>
+                            <label for="personas">Number of Guests *</label>
                             <input type="number" id="personas" min="1" max="20" value="1" required aria-label="Número de personas">
                         </div>
-                        
+                    </div>
+                    
+                    <div class="form-row">
                         <div class="form-group">
-                            <label for="nombre">Nombre Completo:</label>
+                            <label for="nombre">Full Name *</label>
                             <input type="text" id="nombre" required aria-label="Tu nombre completo">
                         </div>
                         
                         <div class="form-group">
-                            <label for="email">Correo Electrónico:</label>
+                            <label for="email">Email Address *</label>
                             <input type="email" id="email" required aria-label="Tu correo electrónico">
                         </div>
                         
                         <div class="form-group">
-                            <label for="telefono">Teléfono:</label>
+                            <label for="telefono">Phone Number</label>
                             <input type="tel" id="telefono" pattern="[0-9\s\-\+]+" aria-label="Tu número de teléfono">
                         </div>
-                        
-                        <button type="submit" class="btn btn-primary" aria-label="Enviar reserva">Reservar Ahora</button>
-                    </fieldset>
+
+                        <div class="form-group">
+                            <label for="pais">Country *</label>
+                            <input type="text" id="pais" required aria-label="Tu país">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-lg" aria-label="Enviar reserva">Complete Booking</button>
                 </form>
             </div>
         </div>
@@ -203,45 +264,88 @@
     <!-- Sección de Contacto -->
     <section class="contact-section" id="contacto" role="region" aria-label="Contacto">
         <div class="container">
-            <h2>¿Preguntas? Contáctanos</h2>
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Have questions? We're here to help make your trip perfect</p>
+            </div>
             <div class="contact-grid">
                 <div class="contact-info">
-                    <h3>Información de Contacto</h3>
-                    <ul role="list">
-                        <li><strong>📍 Dirección:</strong> Calle 123 #45-67, Bogotá, Colombia</li>
-                        <li><strong>📞 Teléfono:</strong> +57 (1) 2345-6789</li>
-                        <li><strong>📧 Email:</strong> info@paseito.com</li>
-                        <li><strong>🕐 Horario:</strong> Lun-Vie: 9:00 - 18:00 | Sab: 10:00 - 14:00</li>
-                    </ul>
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Calle 123 #45-67, Bogotá, Colombia</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+57 (1) 2345-6789</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@paseito.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">🕐</span>
+                        <div>
+                            <h4>Hours</h4>
+                            <p>Mon-Fri: 9:00 - 18:00 | Sat: 10:00 - 14:00</p>
+                        </div>
+                    </div>
                 </div>
                 
                 <form class="contact-form" onsubmit="handleContact(event)">
-                    <fieldset>
-                        <legend>Formulario de Contacto</legend>
-                        
-                        <div class="form-group">
-                            <label for="contactNombre">Nombre:</label>
-                            <input type="text" id="contactNombre" required aria-label="Tu nombre">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contactEmail">Email:</label>
-                            <input type="email" id="contactEmail" required aria-label="Tu email">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="asunto">Asunto:</label>
-                            <input type="text" id="asunto" required aria-label="Asunto de tu mensaje">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="mensaje">Mensaje:</label>
-                            <textarea id="mensaje" rows="5" required aria-label="Tu mensaje"></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary" aria-label="Enviar mensaje">Enviar</button>
-                    </fieldset>
+                    <div class="form-group">
+                        <label for="contactNombre">Name *</label>
+                        <input type="text" id="contactNombre" required aria-label="Tu nombre">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactEmail">Email *</label>
+                        <input type="email" id="contactEmail" required aria-label="Tu email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="asunto">Subject *</label>
+                        <input type="text" id="asunto" required aria-label="Asunto de tu mensaje">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensaje">Message *</label>
+                        <textarea id="mensaje" rows="5" required aria-label="Tu mensaje"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" aria-label="Enviar mensaje">Send Message</button>
                 </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stat-card">
+                <h3>2,500+</h3>
+                <p>Happy Travelers</p>
+            </div>
+            <div class="stat-card">
+                <h3>50+</h3>
+                <p>Destinations</p>
+            </div>
+            <div class="stat-card">
+                <h3>30+</h3>
+                <p>Experiences</p>
+            </div>
+            <div class="stat-card">
+                <h3>4.9/5</h3>
+                <p>Average Rating</p>
             </div>
         </div>
     </section>
@@ -252,31 +356,46 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Paseito</h3>
-                    <p>Tu plataforma de confianza para descubrir los mejores destinos de Colombia.</p>
+                    <p>Your trusted platform for discovering the best of Colombian tourism.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook" class="social-icon">f</a>
+                        <a href="#" aria-label="Instagram" class="social-icon">📷</a>
+                        <a href="#" aria-label="Twitter" class="social-icon">𝕏</a>
+                    </div>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Enlaces Rápidos</h3>
+                    <h3>Quick Links</h3>
                     <ul role="list">
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#destinos">Destinos</a></li>
-                        <li><a href="#experiencias">Experiencias</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="#inicio">Home</a></li>
+                        <li><a href="#destinos">Destinations</a></li>
+                        <li><a href="#experiencias">Experiences</a></li>
+                        <li><a href="#contacto">Contact</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Síguenos</h3>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook">Facebook</a>
-                        <a href="#" aria-label="Instagram">Instagram</a>
-                        <a href="#" aria-label="Twitter">Twitter</a>
+                    <h3>Resources</h3>
+                    <ul role="list">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for travel tips and exclusive offers</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Your email..." aria-label="Tu email para newsletter">
+                        <button class="btn btn-primary">Subscribe</button>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2026 Paseito. Todos los derechos reservados. | <a href="#">Política de Privacidad</a> | <a href="#">Términos de Servicio</a></p>
+                <p>&copy; 2026 Paseito. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -284,7 +403,7 @@
     <!-- Modal de Detalles -->
     <div id="detailsModal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()" aria-label="Cerrar modal">✕</button>
+            <button class="modal-close" onclick="closeModal()" aria-label="Cerrar modal">×</button>
             <div id="modalBody"></div>
         </div>
     </div>
