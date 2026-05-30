@@ -1,0 +1,856 @@
+/* ============================================
+   VARIABLES Y ESTILOS GLOBALES
+   ============================================ */
+
+:root {
+    --primary-color: #FF6B6B;
+    --primary-dark: #E63946;
+    --primary-light: #FFB4B4;
+    --secondary-color: #4ECDC4;
+    --secondary-dark: #1B9A96;
+    --accent-color: #FFE66D;
+    --text-dark: #2C3E50;
+    --text-light: #7F8C8D;
+    --bg-light: #F8F9FA;
+    --bg-white: #FFFFFF;
+    --border-color: #E1E8ED;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-dark);
+    background-color: var(--bg-white);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ============================================
+   ACCESIBILIDAD
+   ============================================ */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Focus visible para navegación con teclado */
+:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* ============================================
+   HEADER Y NAVEGACIÓN
+   ============================================ */
+
+.header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-md);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.tagline {
+    font-size: 0.8rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.nav-menu {
+    display: flex;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 0.5rem;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero {
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.9), rgba(230, 57, 70, 0.9)), 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23ff6b6b" width="1200" height="600"/></svg>');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 120px 20px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.hero-content h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+/* ============================================
+   BOTONES
+   ============================================ */
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-search {
+    background: var(--secondary-color);
+    color: white;
+    padding: 12px 32px;
+}
+
+.btn-search:hover {
+    background: var(--secondary-dark);
+}
+
+/* ============================================
+   SECCIÓN DE BÚSQUEDA Y FILTROS
+   ============================================ */
+
+.search-section {
+    background: var(--bg-light);
+    padding: 60px 20px;
+    margin-bottom: 60px;
+}
+
+.search-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.search-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-input {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.search-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+}
+
+.filters {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+fieldset:last-child {
+    margin-bottom: 0;
+}
+
+legend {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: block;
+    color: var(--text-dark);
+}
+
+.filter-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.filter-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.filter-label:hover {
+    background: var(--bg-light);
+}
+
+.filter-label input {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+}
+
+/* ============================================
+   SECCIÓN DE DESTINOS
+   ============================================ */
+
+.destinations-section,
+.experiences-section {
+    padding: 60px 20px;
+    margin-bottom: 60px;
+}
+
+.destinations-section h2,
+.experiences-section h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-dark);
+}
+
+.destinations-grid,
+.experiences-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* ============================================
+   TARJETAS DE DESTINOS Y EXPERIENCIAS
+   ============================================ */
+
+.card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: linear-gradient(135deg, var(--primary-light), var(--accent-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+}
+
+.card-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-region {
+    display: inline-block;
+    background: var(--accent-color);
+    color: var(--text-dark);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    width: fit-content;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.card-type {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.card-description {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.card-price {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.card-rating {
+    color: #FFC107;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.card-button {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    align-self: flex-start;
+}
+
+.card-button:hover {
+    background: var(--secondary-dark);
+}
+
+/* ============================================
+   SECCIÓN DE RESERVAS
+   ============================================ */
+
+.booking-section {
+    background: linear-gradient(135deg, var(--bg-light), var(--bg-white));
+    padding: 60px 20px;
+    margin-bottom: 60px;
+}
+
+.booking-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.booking-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.booking-form,
+.contact-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* ============================================
+   SECCIÓN DE CONTACTO
+   ============================================ */
+
+.contact-section {
+    background: var(--bg-light);
+    padding: 60px 20px;
+    margin-bottom: 60px;
+}
+
+.contact-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.contact-info {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+}
+
+.contact-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.contact-info ul {
+    list-style: none;
+}
+
+.contact-info li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-light);
+}
+
+.contact-info li:last-child {
+    border-bottom: none;
+}
+
+.contact-form {
+    padding: 2rem;
+}
+
+.contact-form legend {
+    margin-bottom: 1.5rem;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+    background: var(--text-dark);
+    color: white;
+    padding: 3rem 20px 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+.footer-section p {
+    color: #BDC3C7;
+    font-size: 0.9rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section a {
+    color: #BDC3C7;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a:hover {
+    color: var(--accent-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+    text-align: center;
+    color: #BDC3C7;
+    font-size: 0.9rem;
+}
+
+.footer-bottom a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+/* ============================================
+   MODAL
+   ============================================ */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-dark);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.modal-close:hover {
+    background: var(--bg-light);
+}
+
+/* ============================================
+   NOTIFICACIONES
+   ============================================ */
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    background: var(--secondary-color);
+    color: white;
+    font-weight: 600;
+    z-index: 3000;
+    display: none;
+    animation: slideIn 0.3s ease;
+}
+
+.notification.show {
+    display: block;
+}
+
+.notification.error {
+    background: var(--primary-color);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--primary-dark);
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .nav-menu.active {
+        max-height: 300px;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 0;
+        padding: 1rem 0;
+    }
+
+    .nav-link {
+        padding: 1rem;
+        border-radius: 0;
+    }
+
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .destinations-grid,
+    .experiences-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .search-container {
+        flex-direction: column;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-section {
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+
+    .hero {
+        padding: 80px 15px;
+    }
+
+    .hero-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .search-section h2,
+    .destinations-section h2,
+    .experiences-section h2,
+    .booking-section h2,
+    .contact-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .filter-group {
+        grid-template-columns: 1fr;
+    }
+
+    .destinations-grid,
+    .experiences-grid {
+        gap: 1rem;
+    }
+
+    .modal-content {
+        padding: 1.5rem;
+    }
+}
+
+/* ============================================
+   TEMAS OSCUROS (PREFERS-COLOR-SCHEME)
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-dark: #E8EEF1;
+        --text-light: #A8B8C8;
+        --bg-light: #1A2332;
+        --bg-white: #0F1419;
+        --border-color: #2C3E50;
+    }
+
+    body {
+        background-color: var(--bg-white);
+        color: var(--text-dark);
+    }
+
+    .card {
+        background: #1A2332;
+    }
+
+    .booking-form,
+    .contact-form,
+    .contact-info,
+    .filters {
+        background: #1A2332;
+    }
+}
+
+/* ============================================
+   IMPRESIÓN
+   ============================================ */
+
+@media print {
+    .header,
+    .hero,
+    .search-section,
+    .booking-section,
+    .footer,
+    .menu-toggle {
+        display: none;
+    }
+
+    .destinations-grid,
+    .experiences-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
